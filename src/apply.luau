@@ -4,6 +4,7 @@ local flags = require "./flags"
 local implicit_effect = require "./implicit_effect"
 local _, is_action = require "./action"()
 local graph = require "./graph"
+local to_kebab_case = require "./to_kebab_case"
 type Node<T> = graph.Node<T>
 
 type Array<V> = { V }
@@ -64,6 +65,10 @@ local function return_cache(cache: Cache )
 end
 
 local function process_properties(properties: Map<unknown, unknown>, instance: Instance, cache: Cache, depth: number)
+    if not properties.Name then
+        instance.Name = to_kebab_case(instance.ClassName)
+    end
+
     for property, value in properties do
         if type(property) == "string" then
             if flags.strict then -- check for duplicate property assignment at nesting depth

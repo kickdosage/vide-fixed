@@ -1,27 +1,26 @@
-local vide = require "../src/"
+--!strict
+local vide = require("../src/")
 
 local count = vide.source(0)
 
-vide.create("TextButton") {
-    BackgroundTransparency = 1,
-    AnchorPoint = "bad value", -- should error
-    InvalidProperty = true, -- should error
+vide.create("TextButton")({
+	BackgroundTransparency = 1,
+	AnchorPoint = "bad value", -- should error
+	InvalidProperty = true, -- should error
 
-    Text = function()
-        return "count: " .. count()
-    end,
+	Text = function()
+		return "count: " .. count()
+	end,
 
-    Size = function() -- should error
-        return "bad value"
-    end,
+	Size = function() -- should error
+		return "bad value"
+	end,
 
-    MouseEnter = function(x, y)
+	MouseEnter = function(x, y) end,
 
-    end,
+	Activated = "bad value", -- should error
 
-    Activated = "bad value", -- should error
+	vide.create("TextLabel")({}),
 
-    vide.create "TextLabel" {},
-    
-    function() end,
-}
+	function() end,
+})

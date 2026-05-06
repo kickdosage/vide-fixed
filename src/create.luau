@@ -1,3 +1,4 @@
+--!strict
 local typeof = game and typeof or require "../test/mock".typeof :: never
 local Instance = game and Instance or require "../test/mock".Instance :: never
 
