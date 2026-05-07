@@ -2,7 +2,7 @@
 name = "kickdosage/vide-fixed"
 description = "A fork of centau's vide."
 license = "MIT"
-version = "0.4.1"
+version = "0.4.2"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 include = ["default.project.json", "LICENSE", "src"]

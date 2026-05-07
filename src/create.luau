@@ -103,6 +103,8 @@ type function Properties(instance: type?)
     return properties
 end
 
+export type InstanceProperties<Name> = Properties<index<Instances, Name>>
+
 type Create = <Name>(Name|keyof<Instances>|"") -> (Properties<index<Instances, Name>>) -> index<Instances, Name>
 
 return create :: Create
